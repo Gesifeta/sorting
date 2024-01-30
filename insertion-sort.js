@@ -19,7 +19,6 @@ function insertionSort(arr) {
   */
   // Your code here
   //to store counters
-  let copiedArray = [arr]
   let i, j;
   //to store temporary items to insert
   let temp;
@@ -27,7 +26,7 @@ function insertionSort(arr) {
   let sorted = [];
   //loop throught the arr in reverse order;
   for (i = arr.length - 1; i >= 0; i--) {
-    console.log(sorted.join(','))
+    //console.log(sorted.join(','))
     //grab nth array
     temp = arr[i];
     //loop through the sorted array and compaire it with temp value;
@@ -63,7 +62,7 @@ function insertionSortInPlace(arr) {
   let i, j;
   //loop through the array
   for (i = 1; i < arr.length; i++) {
-    console.log(arr.join(','))
+    //console.log(arr.join(','))
     //grab the nth arr
     temp = arr[i];
     //now compaire temp with the sorted arr by looping through the array again
@@ -79,5 +78,47 @@ function insertionSortInPlace(arr) {
 
   // Your code here
 }
+class Item {
+  constructor(defaultCapacity = 8) {
+    this.data = [];
+    this.capacity = defaultCapacity
+    this.data.length = defaultCapacity
+    this.count = 0;
+  }
+  add(value) {
 
-module.exports = [insertionSort, insertionSortInPlace];
+    this.data[this.count] = value;
+    this.count++;
+
+  }
+  display() {
+    return this.data
+  }
+}
+let item = new Item()
+let arr = [];
+const n = 50000000;
+let addingArrayStart = Date.now()
+for (let i = 0; i < n; i++) {
+  item.add(Math.trunc(Math.random() * n))
+  //arr.push(Math.trunc(Math.random() * n))
+}
+let addingArrayEnd = Date.now();
+console.log(`Adding ${n} elements using my custom Push takes ${addingArrayEnd - addingArrayStart} ms`)
+for (let i = 0; i < n; i++) {
+  // item.add(Math.trunc(Math.random() * n))
+  arr.unshift(Math.trunc(Math.random() * n))
+}
+let addingUsingPushEnd = Date.now();
+console.log(arr)
+console.log(`Adding ${n} elements using built-in push takes ${addingUsingPushEnd - addingArrayEnd} ms`)
+
+console.log(item.display())
+// let insertionSortInPlaceStart = Date.now();
+// insertionSortInPlace(arr);
+// let insertionSortInPlaceEnd = Date.now();
+// console.log(`Sorting done for out of place in ${insertionSortInPlaceEnd - insertionSortInPlaceStart} ms`)
+// insertionSort(arr)
+// let insertionSortOutOfPlaceEnd = Date.now();
+// console.log(`Sorting done for out of out of place in ${insertionSortOutOfPlaceEnd - insertionSortInPlaceStart} ms`)
+// module.exports = [insertionSort, insertionSortInPlace];
