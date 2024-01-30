@@ -25,13 +25,17 @@ function insertionSort(arr) {
   let temp;
   //to store sorted items2
   let sorted = [];
+  //loop throught the arr in reverse order;
   for (i = arr.length - 1; i >= 0; i--) {
     console.log(sorted.join(','))
+    //grab nth array
     temp = arr[i];
-
+    //loop through the sorted array and compaire it with temp value;
     for (j = sorted.length - 1; j >= 0 && temp < sorted[j]; j--) {
+      // if sorted nth arr is greater swap
       sorted[j + 1] = sorted[j];
     }
+    //else
     sorted[j + 1] = temp
   }
   return sorted;
