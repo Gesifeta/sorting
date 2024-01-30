@@ -7,7 +7,7 @@ chai.use(spies);
 
 const [insertionSort, insertionSortInPlace] = require("../insertion-sort.js");
 
-describe ('Basic Sorting Algorithms', function () {
+describe('Basic Sorting Algorithms', function () {
 
   let arr;
   let consoleSpy;
@@ -16,7 +16,7 @@ describe ('Basic Sorting Algorithms', function () {
 
     consoleSpy = chai.spy.on(console, 'log');
 
-    arr = [2,4,6,8,1,3,5,7,9];
+    arr = [2, 4, 6, 8, 1, 3, 5, 7, 9];
   });
 
   afterEach(() => {
@@ -37,8 +37,8 @@ describe ('Basic Sorting Algorithms', function () {
     expect(consoleSpy).on.nth(8).be.called.with('1,3,5,6,7,8,9');
     expect(consoleSpy).on.nth(9).be.called.with('1,3,4,5,6,7,8,9');
 
-    expect(newArr).to.deep.equal([1,2,3,4,5,6,7,8,9]);
-    expect(arr).to.deep.equal([2,4,6,8,1,3,5,7,9]);
+    expect(newArr).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    expect(arr).to.deep.equal([2, 4, 6, 8, 1, 3, 5, 7, 9]);
 
   });
 
@@ -55,7 +55,7 @@ describe ('Basic Sorting Algorithms', function () {
     expect(consoleSpy).on.nth(7).be.called.with('1,2,3,4,5,6,8,7,9');
     expect(consoleSpy).on.nth(8).be.called.with('1,2,3,4,5,6,7,8,9');
 
-    expect(arr).to.deep.equal([1,2,3,4,5,6,7,8,9]);
+    expect(arr).to.deep.equal([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
   });
 

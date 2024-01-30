@@ -17,8 +17,24 @@ function insertionSort(arr) {
   - Insert the unsorted value at the break point
   Return the sorted array
   */
-
   // Your code here
+  //to store counters
+  let copiedArray = [arr]
+  let i, j;
+  //to store temporary items to insert
+  let temp;
+  //to store sorted items2
+  let sorted = [];
+  for (i = arr.length - 1; i >= 0; i--) {
+    console.log(sorted.join(','))
+    temp = arr[i];
+
+    for (j = sorted.length - 1; j >= 0 && temp < sorted[j]; j--) {
+      sorted[j + 1] = sorted[j];
+    }
+    sorted[j + 1] = temp
+  }
+  return sorted;
 }
 
 // In-place Insertion Sort
