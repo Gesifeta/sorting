@@ -59,6 +59,23 @@ function insertionSortInPlace(arr) {
   - Increment the dividing pointer and repeat
   Return the mutated array
   */
+  //to store the arrays counter and temporary value
+  let i, j;
+  //loop through the array
+  for (i = 1; i < arr.length; i++) {
+    console.log(arr.join(','))
+    //grab the nth arr
+    temp = arr[i];
+    //now compaire temp with the sorted arr by looping through the array again
+    //if temp is less than the n[j] array swap with it, otherwise
+    //insert the temp;
+    for (j = i - 1; j >= 0 && temp < arr[j]; j--) {
+      arr[j + 1] = arr[j]
+    }
+    arr[j + 1] = temp;
+
+  }
+  return arr;
 
   // Your code here
 }
